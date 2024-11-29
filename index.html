@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tempo</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/f5c8e13b2d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- || LOCATION MODAL -->
+  <!-- The Modal -->  <!-- || STARTING -->
+  <div class="container">
+    <!--|| MAIN WEATHER REPORT BOX (RIGHT-SIDE) -->
+    <div class="weather-report">
+      <!-- || NAVIGATION BAR -->
+      <nav>
+        <div class="location">
+          <h2 id="city">Pocos de Caldas</h2>
+          <h3 id="country">
+            <i class="fa-sharp fa-solid fa-location-dot"></i>Brasil
+          </h3>
+        </div>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+      </nav>
+
+      <!-- || CURRENT WEATHER STATUS BOX -->
+      <div class="current-status">
+        <!-- BOX-1  MAIN WEATHER BOX-->
+        <div class="weather weather-box1">
+          <div class="weather-heading">
+            <div class="weather-icon">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <div class="weather-description">
+              <h3>Clima</h3>
+              
+            </div>
+          </div>
+          <div class="weather-temperature">
+            <div class="temperature">
+              <div class="temp">
+                <h2 id="temp">22</h2>
+                <img src="images/celsius.svg" alt="" />
+              </div>
+              <img id="weather-icon" src="images/clear.png" alt="" />
+            </div>
+
+          </div>
+
+          <div class="weather-details">
+            <div class="box">
+              <p>Humidade</p>
+              <h3 id="humidity">87%</h3>
+            </div>
+          </div>
+        </div>
+
+        <!--|| Box-2 -->
+        <!-- Qliadade Ar -->
+        <div class="weather weather-box2">
+          <div class="more-details">
+            <div class="aqi-prediction-container">
+              <div class="aqi-prediction">
+              </div>
+              <div class="aqi-prediction-content">
+                <h2 class="aqi-title">Qualidade Ar</h2>
+                <div class="current-aqi">
+                  <div class="aqi-level">
+                    <div class="aqi">390</div>
+                    <span>AQI</span>
+                  </div>
+                  <div class="consern-level">Mutio Bom</div>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+
+      <!-- || 24 HOURS WEATHER UPDATES -->
+      <div class="hourly-temperature">
+        <div class="hourly-temperature-heading">
+          <h2>
+            How's the <br />
+            temperature today at?
+          </h2>
+        </div>
+        <div class="today-at">
+          <div class="hours-box">
+            <p class="hours">00:00 AM</p>
+            <img class="hourly-icon" src="images/clear.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">01:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">02:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">03:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">04:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">05:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">06:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">07:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">08:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">09:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">10:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">11:00 AM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">12:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">01:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">02:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">03:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">04:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">05:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">06:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">07:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">08:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">09:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">10:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+
+          <div class="hours-box">
+            <p class="hours">11:00 PM</p>
+            <img class="hourly-icon" src="images/clouds.png" alt="" />
+            <p class="hours-temp">21.8 °c</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- || SLIDEBAR -->
+    <div class="slidebar">
+      <!-- Time and Date -->
+      <div class="time-date">
+        <h2 class="time">12:03:40 AM</h2>
+        <p class="date">7 March 2023, Monday</p>
+      </div>
+
+     
+      <!-- || Next 6 Days Weather report -->
+      <div class="weather-prediction">
+        <h3>3 Days Forecast</h3>
+
+        <div class="days-box">
+          <div>
+            <img class="days-icon" src="images/clouds.png" alt="" />
+            <div class="days">
+              <div class="prediction-day">Sunday 10</div>
+              <div class="prediction-desc">Cloudy</div>
+            </div>
+          </div>
+
+          <div class="days-temp">26°c <span>/</span> 19°c</div>
+        </div>
+
+        <div class="days-box">
+          <div>
+            <img class="days-icon" src="images/clouds.png" alt="" />
+            <div class="days">
+              <div class="prediction-day">Sunday 10</div>
+              <div class="prediction-desc">Cloudy</div>
+            </div>
+          </div>
+
+          <div class="days-temp">26°c <span>/</span> 19°c</div>
+        </div>
+
+        <div class="days-box">
+          <div>
+            <img class="days-icon" src="images/clouds.png" alt="" />
+            <div class="days">
+              <div class="prediction-day">Sunday 10</div>
+              <div class="prediction-desc">Cloudy</div>
+            </div>
+          </div>
+
+          <div class="days-temp">26°c <span>/</span> 19°c</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="s-footer">
+    <footer class="footer">
+     
+
+      <ul class="social-icon">
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="https://www.facebook.com/">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="https://github.com/devjainofficial/">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="https://www.linkedin.com/in/devjainofficial/">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li class="social-icon__item">
+          <a class="social-icon__link" href="https://www.instagram.com/devjain_official">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+      </ul>
+      <h3>IFOCO</h3>
+      <p>Grupo Web</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/modal.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
