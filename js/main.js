@@ -32,11 +32,11 @@ async function horas() {
   try {
     const response = await fetch('http://localhost:3000/horas');
     const horas = await response.json();
-    document.getElementById("temp1").textContent = `${horas[1].Temperatura}`;
-    document.getElementById("temp2").textContent = `${horas[2].Temperatura}`;
-    document.getElementById("temp3").textContent = `${horas[3].Temperatura}`;
-    document.getElementById("temp4").textContent = `${horas[4].Temperatura}`;
-    document.getElementById("temp5").textContent = `${horas[5].Temperatura}`;
+    document.getElementById("temp1").textContent = `${horas[1].Temperatura}°c`;
+    document.getElementById("temp2").textContent = `${horas[2].Temperatura}°c`;
+    document.getElementById("temp3").textContent = `${horas[3].Temperatura}°c`;
+    document.getElementById("temp4").textContent = `${horas[4].Temperatura}°c`;
+    document.getElementById("temp5").textContent = `${horas[5].Temperatura}°c`;
 
     document.getElementById("humidade1").textContent = `${horas[1].Umidade}%`;
     document.getElementById("humidade2").textContent = `${horas[2].Umidade}%`;

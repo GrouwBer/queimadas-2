@@ -208,6 +208,7 @@ nav {
 }
 
 .temp {
+    font-size: sm;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -328,9 +329,10 @@ nav {
 }
 
 .hours-box {
+    
     background-color: var(--SECONDARY-BG-COLOR);
     width: 100%;
-    height: 20vh;
+    height: 100%;
     padding: 15px;
     border-radius: var(--STANDERED-RADIUS);
     display: flex;
@@ -342,7 +344,7 @@ nav {
 }
 
 .hours-temp {
-  font-size: 1rem;
+  font-size: var(--SMALL-TEXT);
   font-weight: 500;
   color: #333; /* Cor neutra para melhor contraste */
   display: flex;
@@ -351,10 +353,7 @@ nav {
 }
 
 .celso {
-  width: 14px;
-  height: 14px;
-  filter: grayscale(1); /* Deixa o ícone mais neutro */
-  opacity: 0.8; /* Suaviza a imagem */
+  width: 1.5vw;
 }
 
 .hours-box:hover {
@@ -364,7 +363,7 @@ nav {
 }
 
 .hours-box p {
-    font-size: 30px;
+    font-size: 1.5vw;
     font-weight: 700;
 }
 
@@ -537,7 +536,7 @@ nav {
 
 .days .prediction-day {
     color: #7A7F8E;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 .days .prediction-desc {
@@ -547,7 +546,7 @@ nav {
 
 .days-box .days-temp {
     color: orange;
-    font-size: 15px;
+    font-size: 1vw;
     font-weight: 700;
 }
 
@@ -606,6 +605,8 @@ nav {
 
 @media screen and (max-width: 768px) {
 
+    
+
     .search-area {
         margin-right: 60px;/* Aligns search bar with screen */
     }
@@ -639,6 +640,7 @@ nav {
     .s-footer {
         margin-top: 80px;
     }
+    
 }
 
 @media screen and (max-width: 570px) {
@@ -784,4 +786,3 @@ footer h3 {
     font-size: 1rem;
     font-weight: 300;
 }
-
