@@ -1,128 +1,166 @@
-// Global variables
-const API_KEY = 'da2103b2c4ce4f95af051626232503'; // Consider moving this to a secure environment variable
-const API_BASE_URL = 'https://api.weatherapi.com/v1/forecast.json';
-
-// DOM elements
-const elements = {
-  city: document.getElementById('city'),
-  country: document.getElementById('country'),
-  searchCity: document.getElementById('search'),
-  cityTemp: document.getElementById('temp'),
-  weatherIcon: document.getElementById('weather-icon'),
-  weatherDescription: document.getElementById('description'),
-  weatherHumidity: document.getElementById('humidity'),
-  hoursIcon: document.querySelectorAll('.hourly-icon'),
-  hoursTemp: document.querySelectorAll('.hours-temp'),
-  daysIcon: document.querySelectorAll('.days-icon'),
-  nextDay: document.querySelectorAll('.prediction-day'),
-  predictionDesc: document.querySelectorAll('.prediction-desc'),
-  daysTemp: document.querySelectorAll('.days-temp'),
-  currentTime: document.querySelector('.time'),
-  currentDate: document.querySelector('.date'),
-  aqi: document.querySelector('.aqi'),
-  hamburger: document.querySelector('.hamburger'),
-  slidebar: document.querySelector('.slidebar'),
-};
-
-const monthName = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-];
-
-const weekDays = [
-  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
-];
-
-// Main weather functionality
-async function getWeatherReport(searchCity) {
+async function fetchLatestRecord() {
   try {
-    const response = await fetch(`${API_BASE_URL}?key=${API_KEY}&q=${searchCity}&days=7&aqi=yes&alerts=no`);
-    const data = await response.json();
-    updateWeatherUI(data);
-  } catch (error) {
-    console.error('Error fetching weather data:', error);
-    // TODO: Implement user-friendly error handling
-  }
-}
-
-// function to ask and get current location
-
-
-function updateWeatherUI(data) {
-  updateCurrentWeather(data);
-  updateHourlyForecast(data);
-  updateDailyForecast(data);
-  updateTime(data.location.tz_id);
-}
-
-function updateCurrentWeather(data) {
-  elements.cityTemp.textContent = data.current.temp_c;
-  elements.weatherDescription.textContent = data.current.condition.text;
-  elements.weatherIcon.src = data.current.condition.icon;
-  elements.weatherHumidity.textContent = `${data.current.humidity}%`;
-  updateUVIndex(data.current.uv);
-}
-
-function updateHourlyForecast(data) {
-  elements.hoursTemp.forEach((t, i) => {
-    t.textContent = data.forecast.forecastday[0].hour[i].temp_c;
-  });
-
-  elements.hoursIcon.forEach((t, i) => {
-    t.src = data.forecast.forecastday[0].hour[i].condition.icon;
-  });
-}
-
-function updateDailyForecast(data) {
-  elements.daysIcon.forEach((icon, index) => {
-    icon.src = data.forecast.forecastday[index].day.condition.icon;
-  });
-
-  elements.daysTemp.forEach((temp, index) => {
-    const day = data.forecast.forecastday[index].day;
-    temp.innerHTML = `${Math.round(day.maxtemp_c)}°c<span> / </span>${Math.round(day.mintemp_c)}°c`;
-  });
-
-  elements.predictionDesc.forEach((d, index) => {
-    d.textContent = data.forecast.forecastday[index].day.condition.text;
-  });
-
-  elements.nextDay.forEach((day, index) => {
-    const date = new Date(data.forecast.forecastday[index].date);
-    day.textContent = `${weekDays[date.getDay()]} ${date.getDate()}`;
-  });
-}
-
-function updateTime(timezone) {
-  const updateClock = () => {
-    const now = new Date();
-    const options = { timeZone: timezone, hour: '2-digit', minute: '2-digit', second: '2-digit' };
-
-    // Check if timezone is valid
-    if (timezone) {
-      const localTime = now.toLocaleTimeString('pt-BR', options);
-      elements.currentTime.textContent = localTime;
-    } else {
-      elements.currentTime.textContent = "Invalid timezone"; // Handle invalid timezone
+    const response = await fetch('http://localhost:3000/latest-record');
+    const latestRecord = await response.json();
+    document.getElementById("temp").textContent = `${latestRecord[0].Temperatura}`;
+    document.getElementById("humidade").textContent = `${latestRecord[0].Umidade}%`;
+    if (latestRecord[0].Qualidade_Ar < 50) {
+      document.getElementById("aqi").style.color = "green";
+      document.getElementById("aqi").textContent = `${latestRecord[0].Qualidade_Ar}`;
+      document.getElementById("TextoAqi").style.backgroundColor = "green";
+      document.getElementById("TextoAqi").textContent = `Muito Bom`;
     }
-  };
+    else if (latestRecord[0].Qualidade_Ar < 100) {
+      document.getElementById("aqi").style.color = "#f4e10d";
+      document.getElementById("aqi").textContent = `${latestRecord[0].Qualidade_Ar}`;
+      document.getElementById("TextoAqi").style.backgroundColor = "#f4e10d";
+      document.getElementById("TextoAqi").textContent = `Moderado`;
+    }
+    else {
+      document.getElementById("aqi").style.color = "red";
+      document.getElementById("aqi").textContent = `${latestRecord[0].Qualidade_Ar}`;
+      document.getElementById("TextoAqi").style.backgroundColor = "red";
+      document.getElementById("TextoAqi").textContent = `Ruim`;
+    }
 
-  updateClock();
-  setInterval(updateClock, 1000);
-
-  // Setting the date based on timezone
-  const today = new Date(); // Get the current date in UTC
-  if (timezone) {
-    today.toLocaleString('pt-BR', { timeZone: timezone });
+  } catch (error) {
+    console.error('Erro:', error);
   }
-  elements.currentDate.textContent = `${today.getDate()} ${monthName[today.getMonth()]} ${today.getFullYear()}, ${weekDays[today.getDay()]}`;
+}
+
+async function horas() {
+  try {
+    const response = await fetch('http://localhost:3000/horas');
+    const horas = await response.json();
+    document.getElementById("temp1").textContent = `${horas[1].Temperatura}`;
+    document.getElementById("temp2").textContent = `${horas[2].Temperatura}`;
+    document.getElementById("temp3").textContent = `${horas[3].Temperatura}`;
+    document.getElementById("temp4").textContent = `${horas[4].Temperatura}`;
+    document.getElementById("temp5").textContent = `${horas[5].Temperatura}`;
+
+    document.getElementById("humidade1").textContent = `${horas[1].Umidade}%`;
+    document.getElementById("humidade2").textContent = `${horas[2].Umidade}%`;
+    document.getElementById("humidade3").textContent = `${horas[3].Umidade}%`;
+    document.getElementById("humidade4").textContent = `${horas[4].Umidade}%`;
+    document.getElementById("humidade5").textContent = `${horas[5].Umidade}%`;
+
+    document.getElementById("aqi1").textContent = `${horas[1].Qualidade_Ar} AQI`;
+    document.getElementById("aqi2").textContent = `${horas[2].Qualidade_Ar} AQI`;
+    document.getElementById("aqi3").textContent = `${horas[3].Qualidade_Ar} AQI`;
+    document.getElementById("aqi4").textContent = `${horas[4].Qualidade_Ar} AQI`;
+    document.getElementById("aqi5").textContent = `${horas[5].Qualidade_Ar} AQI`;
+
+
+  } catch (error) {
+    console.error('Erro:', error);
+  }
 }
 
 
-// Event listeners
-elements.hamburger.addEventListener('click', () => {
-  elements.hamburger.classList.toggle('active');
-  elements.slidebar.classList.toggle('active');
-});
-// Initialize weather app with default city
-getWeatherReport('Pocos de Caldas');  
+
+
+async function dias() {
+  try {
+    const response = await fetch('http://localhost:3000/dias');
+    const dias = await response.json();
+    console.log('Horas:', dias);
+    document.getElementById("temperatura1").textContent = `${dias[24].Temperatura} °c`;
+    document.getElementById("temperatura2").textContent = `${dias[24].Temperatura} °c`;
+    document.getElementById("temperatura3").textContent = `${dias[24].Temperatura} °c`;
+
+    document.getElementById("qualidadeAr11").textContent = `${dias[24].Qualidade_Ar} AQI`;
+    document.getElementById("qualidadeAr22").textContent = `${dias[48].Qualidade_Ar} AQI`;
+    document.getElementById("qualidadeAr33").textContent = `${dias[71].Qualidade_Ar} AQI`;
+  } catch (error) {
+    console.error('Erro:', error);
+  }
+}
+
+
+
+
+horas(); 
+setInterval(horas, 1000);
+fetchLatestRecord();
+setInterval(fetchLatestRecord, 10000);
+dias();
+setInterval(dias, 10000);
+
+async function main() {
+  updateTime();
+  setInterval(updateTime, 1000);
+
+
+
+
+  
+
+
+
+  function updateTime() {
+    var d = new Date();
+    var hours = String(d.getHours()).padStart(2, '0');
+    var minutes = String(d.getMinutes()).padStart(2, '0');
+    var seconds = String(d.getSeconds()).padStart(2, '0');
+    var formatteddatestr = `${hours}:${minutes}:${seconds}`;
+
+    // Formatar a data para mostrar o nome do dia da semana e o dia do mês em português
+    var diasDaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+    var meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+    
+    function formatarData(d) {
+      var nomeDia = diasDaSemana[d.getDay()];
+      var diaMes = d.getDate();
+      var nomeMes = meses[d.getMonth()];
+      return `${nomeDia}, ${diaMes} de ${nomeMes}`;
+    }
+
+    var dataFormatada = formatarData(d);
+    document.getElementById("Data").textContent = dataFormatada;
+    document.getElementById("Tempo").textContent = formatteddatestr;
+
+    // Subtrair dias e formatar as datas
+    var d1 = new Date(d);
+    d1.setDate(d1.getDate() - 1);
+    var dataFormatada1 = formatarData(d1);
+    document.getElementById("dia1").textContent = dataFormatada1;
+
+    var d2 = new Date(d);
+    d2.setDate(d2.getDate() - 2);
+    var dataFormatada2 = formatarData(d2);
+    document.getElementById("dia2").textContent = dataFormatada2;
+
+    var d3 = new Date(d);
+    d3.setDate(d3.getDate() - 3);
+    var dataFormatada3 = formatarData(d3);
+    document.getElementById("dia3").textContent = dataFormatada3;
+
+    // Subtrair horas e formatar as horas
+    d.setHours(d.getHours() - 1);
+    var hoursSubtracted1 = String(d.getHours()).padStart(2, '0');
+    var formatteddatestrSubtracted1 = `${hoursSubtracted1}:${minutes}:${seconds}`;
+    document.getElementById("hora1").textContent = formatteddatestrSubtracted1;
+
+    d.setHours(d.getHours() - 1);
+    var hoursSubtracted2 = String(d.getHours()).padStart(2, '0');
+    var formatteddatestrSubtracted2 = `${hoursSubtracted2}:${minutes}:${seconds}`;
+    document.getElementById("hora2").textContent = formatteddatestrSubtracted2;
+
+    d.setHours(d.getHours() - 1);
+    var hoursSubtracted3 = String(d.getHours()).padStart(2, '0');
+    var formatteddatestrSubtracted3 = `${hoursSubtracted3}:${minutes}:${seconds}`;
+    document.getElementById("hora3").textContent = formatteddatestrSubtracted3;
+
+    d.setHours(d.getHours() - 1);
+    var hoursSubtracted4 = String(d.getHours()).padStart(2, '0');
+    var formatteddatestrSubtracted4 = `${hoursSubtracted4}:${minutes}:${seconds}`;
+    document.getElementById("hora4").textContent = formatteddatestrSubtracted4;
+
+    d.setHours(d.getHours() - 1);
+    var hoursSubtracted5 = String(d.getHours()).padStart(2, '0');
+    var formatteddatestrSubtracted5 = `${hoursSubtracted5}:${minutes}:${seconds}`;
+    document.getElementById("hora5").textContent = formatteddatestrSubtracted5;
+  }
+}
+
+main();

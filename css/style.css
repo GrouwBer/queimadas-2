@@ -15,6 +15,8 @@
     - Defines primary color scheme and common sizes for consistency.
     - Modify these to update the overall theme.
 */
+
+
 :root {
 
     /* COLORS */
@@ -48,7 +50,7 @@ body {
 .container {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 83.34vh;
     display: flex;
     color: var(--PRIMARY-TEXT-COLOR);
     margin: 0 auto;
@@ -116,25 +118,6 @@ nav {
         /* Lowering the shadow */
 }
 
-/* Hamburger */
-.hamburger {
-    display: none;
-    position: absolute;
-    left: 10px;
-    top: 30px;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    transition: all 0.3s ease-in-out;
-    background-color: #0a2348;
-}
-
 /* || MAIN WEATHER REPORT BOX */
 .current-status {
     display: flex;
@@ -200,6 +183,20 @@ nav {
     align-items: center;
 }
 
+.temperature{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.temperature2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
 .temperature h2 {
     font-size: 50px;
@@ -211,6 +208,16 @@ nav {
 }
 
 .temp {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.humid {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.aqi-hour {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -275,8 +282,13 @@ nav {
 
 .weather-box2 {
     background: #FFD8E7;
+    align-items: center;
     background-image: url(../images/city-embankment-in-summer-season-vector.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 
 
@@ -296,8 +308,7 @@ nav {
 
 .today-at {
     display: grid;
-    overflow: scroll;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -318,8 +329,9 @@ nav {
 
 .hours-box {
     background-color: var(--SECONDARY-BG-COLOR);
-    width: 110px;
-    padding: 10px;
+    width: 100%;
+    height: 20vh;
+    padding: 15px;
     border-radius: var(--STANDERED-RADIUS);
     display: flex;
     flex-direction: column;
@@ -329,6 +341,21 @@ nav {
     transition: background-color 0.3s;
 }
 
+.hours-temp {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333; /* Cor neutra para melhor contraste */
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espaçamento entre texto e ícone */
+}
+
+.celso {
+  width: 14px;
+  height: 14px;
+  filter: grayscale(1); /* Deixa o ícone mais neutro */
+  opacity: 0.8; /* Suaviza a imagem */
+}
 
 .hours-box:hover {
 
@@ -337,9 +364,13 @@ nav {
 }
 
 .hours-box p {
-    font-size: var(--SMALL-TEXT);
+    font-size: 30px;
     font-weight: 700;
 }
+
+/*  SOBRE */
+
+
 
 /* || SLIDEBAR */
 
@@ -348,7 +379,7 @@ nav {
     flex-direction: column;
     gap: 10px;
     min-width: 200px;
-    width: 320px;
+    width: 40vh;
     height: 920px;
     border-radius: 0 0 0 var(--STANDERED-RADIUS);
     background-color: var(--SECONDARY-BG-COLOR);
@@ -365,6 +396,8 @@ nav {
 }
 
 .time-date {
+    align-items: center;
+    text-align: center;
     margin: 10px 20px;
 }
 
@@ -380,38 +413,72 @@ nav {
 /* Air quality Prediction */
 
 
- .current-aqi {
+.current-aqi {
     width: 100%;
-    height: 150px;
+    max-width: 400px; /* Limita o tamanho da caixa */
+    height: auto;
     margin-top: 15px;
     display: flex;
     flex-direction: column;
     font-weight: 700;
     justify-content: space-evenly;
-    padding: 0 20px;
+    padding: 20px;
 }
 
-.aqi-title ,p{
+.aqi-title, p {
     font-weight: 900;
+    text-align: center;
+    margin: 0;
 }
 
+.aqi-prediction-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.aqi-title {
+    font-size: 2rem;
+    margin-bottom: 15px; /* Espaçamento entre título e aqi */
+    color: #333;
+}
 
 .aqi-level {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .aqi-level .aqi {
-    font-size: 25px;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #070707; /* Cor vibrante para destacar o valor */
 }
 
 .aqi-level span {
-    background-color: #f4e10d;
-    width: 45px;
-    height: 30px;
+    font-size: 1.2rem;
+    width: 60px;
+    height: 45px;
     text-align: center;
-    border-radius: 10px;
-    /* padding: 5px; */
+    line-height: 45px;
+    background-color: #f4e10d;
+    border-radius: 8px;
+}
+
+.consern-level {
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+    width: 190px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: #000000;
+    border-radius: 8px;
 }
 
 /* || 6 DAYS FORECAST */
@@ -437,9 +504,11 @@ nav {
 .days-box {
     background-color: var(--LIGHT-BG-COLOR);
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: 150px;
     border-radius: var(--STANDERED-RADIUS);
     padding: 20px 15px;
     box-shadow: 5px 5px 10px #cccccc,
@@ -468,7 +537,7 @@ nav {
 
 .days .prediction-day {
     color: #7A7F8E;
-    font-size: var(--SMALL-TEXT);
+    font-size: 20px;
 }
 
 .days .prediction-desc {
@@ -478,6 +547,7 @@ nav {
 
 .days-box .days-temp {
     color: orange;
+    font-size: 15px;
     font-weight: 700;
 }
 
@@ -535,23 +605,6 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-    /* Shows hamburger menu for navigation on smaller screens */
-    .hamburger {
-        display: block;
-        z-index: 5;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
 
     .search-area {
         margin-right: 60px;/* Aligns search bar with screen */
@@ -608,7 +661,7 @@ nav {
     }
 
     .location {
-        margin: 20px 10px 0;
+        margin: 30px 15px 0;
     }
 
     .location h2 {
@@ -635,10 +688,6 @@ nav {
 
 @media screen and (max-width: 380px) {
 
-    .hamburger {
-        right: 10px;
-        top: 46px;
-    }
 
     .temperature img {
         width: 80px;
