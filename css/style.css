@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700&family=Nunito:wght@400;700&family=Open+Sans:ital,wght@1,300&family=Poppins&family=Roboto&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap');
 
-/* || RESET STYLES 
-    - Ensures consistent padding, margin, and box model across elements.
-    - Sets a default font for the entire app.
-*/
 * {
     padding: 0;
     margin: 0;
@@ -11,27 +7,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* || ROOT VARIABLES 
-    - Defines primary color scheme and common sizes for consistency.
-    - Modify these to update the overall theme.
-*/
 
 
 :root {
 
-    /* COLORS */
     --PRIMARY-TEXT-COLOR: #0a2348;
     --SECONDARY-TEXT-COLOR: #fff;
     --PRIMARY-BG-COLOR: #0a2348;
     --SECONDARY-BG-COLOR: #f3f7f7;
     --LIGHT-BG-COLOR: #fff;
 
-    /* TEXT */
     --SMALL-TEXT: 14px;
     --LETTER-SPACING: 0.8px;
     --LIGHT-TEXT: #f4f4f4;
-
-    /* STANDERED SIZE AND PADDINGS */
     --STANDERED-PADDING: 30px;
     --STANDERED-RADIUS: 20px;
 }
@@ -41,12 +29,6 @@ body {
     background-color: var(--LIGHT-BG-COLOR);
 }
 
-
-/* || STARTING */
-/* || MAIN CONTAINER
-    - Sets the layout for the main content container, ensuring it occupies full viewport height.
-    - Centers content horizontally with auto margins.
-*/
 .container {
     position: relative;
     width: 100%;
@@ -56,10 +38,7 @@ body {
     margin: 0 auto;
 }
 
-/* || WEATHER REPORT BOX
-    - Styles the main weather report area with padding for spacing.
-    - Assigns a minimum width for readability on smaller screens.
-*/
+
 .weather-report {
     min-width: 350px;
     flex: 1;
@@ -110,15 +89,15 @@ nav {
     padding-left: 20px;
 }
 
-/* Click Animation Effect */
+
 .search-area i:active {
     transform: scale(0.90);
-    /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 22px 1px #2d2d2d4e; /* Subtle shadow for depth */
-        /* Lowering the shadow */
+    
+    box-shadow: 3px 2px 22px 1px #2d2d2d4e; 
+
 }
 
-/* || MAIN WEATHER REPORT BOX */
+
 .current-status {
     display: flex;
     justify-content: space-evenly;

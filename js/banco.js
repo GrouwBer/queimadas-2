@@ -27,7 +27,7 @@ connectToMongo();
 app.get('/latest-record', async (req, res) => {
   try {
     const dados = db.collection('sensores');
-    const latestRecord = await dados.find().sort({Data: -1 }).limit(1).toArray();
+    const latestRecord = await dados.find().sort({data_hora: -1 }).limit(1).toArray();
     res.json(latestRecord);
   } catch (error) {
     res.status(500).send('Error fetching latest record');
@@ -37,23 +37,23 @@ app.get('/latest-record', async (req, res) => {
 app.get('/horas', async (req, res) => {
   try {
     const hora = db.collection('sensores');
-    const horas = await hora.find().sort({Data: -1 }).limit(6).toArray();
+    const horas = await hora.find().sort({data_hora: -1 }).limit(6).toArray();
     res.json(horas);
   } catch (error) {
     res.status(500).send('Error fetching latest record');
   }
 });
 
-
 app.get('/dias', async (req, res) => {
   try {
     const dia = db.collection('sensores');
-    const dias = await dia.find().sort({Data: -1 }).limit(72).toArray();
+    const dias = await dia.find().sort({data_hora: -1 }).limit(72).toArray();
     res.json(dias);
   } catch (error) {
     res.status(500).send('Error fetching latest record');
   }
 });
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

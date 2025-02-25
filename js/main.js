@@ -2,23 +2,23 @@ async function fetchLatestRecord() {
   try {
     const response = await fetch('http://localhost:3000/latest-record');
     const latestRecord = await response.json();
-    document.getElementById("temp").textContent = `${latestRecord[0].Temperatura}`;
-    document.getElementById("humidade").textContent = `${latestRecord[0].Umidade}%`;
+    document.getElementById("temp").textContent = `${latestRecord[0].temperatura}`;
+    document.getElementById("humidade").textContent = `${latestRecord[0].umidade}%`;
     if (latestRecord[0].Qualidade_Ar < 50) {
       document.getElementById("aqi").style.color = "green";
-      document.getElementById("aqi").textContent = `${latestRecord[0].Qualidade_Ar}`;
+      document.getElementById("aqi").textContent = `${latestRecord[0].qualidade_ar}`;
       document.getElementById("TextoAqi").style.backgroundColor = "green";
       document.getElementById("TextoAqi").textContent = `Muito Bom`;
     }
     else if (latestRecord[0].Qualidade_Ar < 100) {
       document.getElementById("aqi").style.color = "#f4e10d";
-      document.getElementById("aqi").textContent = `${latestRecord[0].Qualidade_Ar}`;
+      document.getElementById("aqi").textContent = `${latestRecord[0].qualidade_ar}`;
       document.getElementById("TextoAqi").style.backgroundColor = "#f4e10d";
       document.getElementById("TextoAqi").textContent = `Moderado`;
     }
     else {
       document.getElementById("aqi").style.color = "red";
-      document.getElementById("aqi").textContent = `${latestRecord[0].Qualidade_Ar}`;
+      document.getElementById("aqi").textContent = `${latestRecord[0].qualidade_ar}`;
       document.getElementById("TextoAqi").style.backgroundColor = "red";
       document.getElementById("TextoAqi").textContent = `Ruim`;
     }
@@ -32,23 +32,23 @@ async function horas() {
   try {
     const response = await fetch('http://localhost:3000/horas');
     const horas = await response.json();
-    document.getElementById("temp1").textContent = `${horas[1].Temperatura}°c`;
-    document.getElementById("temp2").textContent = `${horas[2].Temperatura}°c`;
-    document.getElementById("temp3").textContent = `${horas[3].Temperatura}°c`;
-    document.getElementById("temp4").textContent = `${horas[4].Temperatura}°c`;
-    document.getElementById("temp5").textContent = `${horas[5].Temperatura}°c`;
+    document.getElementById("temp1").textContent = `${horas[1].temperatura}°c`;
+    document.getElementById("temp2").textContent = `${horas[2].temperatura}°c`;
+    document.getElementById("temp3").textContent = `${horas[3].temperatura}°c`;
+    document.getElementById("temp4").textContent = `${horas[4].temperatura}°c`;
+    document.getElementById("temp5").textContent = `${horas[5].temperatura}°c`;
 
-    document.getElementById("humidade1").textContent = `${horas[1].Umidade}%`;
-    document.getElementById("humidade2").textContent = `${horas[2].Umidade}%`;
-    document.getElementById("humidade3").textContent = `${horas[3].Umidade}%`;
-    document.getElementById("humidade4").textContent = `${horas[4].Umidade}%`;
-    document.getElementById("humidade5").textContent = `${horas[5].Umidade}%`;
+    document.getElementById("humidade1").textContent = `${horas[1].umidade}%`;
+    document.getElementById("humidade2").textContent = `${horas[2].umidade}%`;
+    document.getElementById("humidade3").textContent = `${horas[3].umidade}%`;
+    document.getElementById("humidade4").textContent = `${horas[4].umidade}%`;
+    document.getElementById("humidade5").textContent = `${horas[5].umidade}%`;
 
-    document.getElementById("aqi1").textContent = `${horas[1].Qualidade_Ar} AQI`;
-    document.getElementById("aqi2").textContent = `${horas[2].Qualidade_Ar} AQI`;
-    document.getElementById("aqi3").textContent = `${horas[3].Qualidade_Ar} AQI`;
-    document.getElementById("aqi4").textContent = `${horas[4].Qualidade_Ar} AQI`;
-    document.getElementById("aqi5").textContent = `${horas[5].Qualidade_Ar} AQI`;
+    document.getElementById("aqi1").textContent = `${horas[1].qualidade_ar} AQI`;
+    document.getElementById("aqi2").textContent = `${horas[2].qualidade_ar} AQI`;
+    document.getElementById("aqi3").textContent = `${horas[3].qualidade_ar} AQI`;
+    document.getElementById("aqi4").textContent = `${horas[4].qualidade_ar} AQI`;
+    document.getElementById("aqi5").textContent = `${horas[5].qualidade_ar} AQI`;
 
 
   } catch (error) {
@@ -64,13 +64,13 @@ async function dias() {
     const response = await fetch('http://localhost:3000/dias');
     const dias = await response.json();
     console.log('Horas:', dias);
-    document.getElementById("temperatura1").textContent = `${dias[24].Temperatura} °c`;
-    document.getElementById("temperatura2").textContent = `${dias[24].Temperatura} °c`;
-    document.getElementById("temperatura3").textContent = `${dias[24].Temperatura} °c`;
+    document.getElementById("temperatura1").textContent = `${dias[24].temperatura} °c`;
+    document.getElementById("temperatura2").textContent = `${dias[24].temperatura} °c`;
+    document.getElementById("temperatura3").textContent = `${dias[24].temperatura} °c`;
 
-    document.getElementById("qualidadeAr11").textContent = `${dias[24].Qualidade_Ar} AQI`;
-    document.getElementById("qualidadeAr22").textContent = `${dias[48].Qualidade_Ar} AQI`;
-    document.getElementById("qualidadeAr33").textContent = `${dias[71].Qualidade_Ar} AQI`;
+    document.getElementById("qualidadeAr11").textContent = `${dias[24].qualidade_ar} AQI`;
+    document.getElementById("qualidadeAr22").textContent = `${dias[48].qualidade_ar} AQI`;
+    document.getElementById("qualidadeAr33").textContent = `${dias[71].qualidade_ar} AQI`;
   } catch (error) {
     console.error('Erro:', error);
   }
