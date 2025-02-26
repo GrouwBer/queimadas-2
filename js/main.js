@@ -67,7 +67,6 @@ async function dias() {
     document.getElementById("temperatura1").textContent = `${dias[24].temperatura} °c`;
     document.getElementById("temperatura2").textContent = `${dias[24].temperatura} °c`;
     document.getElementById("temperatura3").textContent = `${dias[24].temperatura} °c`;
-
     document.getElementById("qualidadeAr11").textContent = `${dias[24].qualidade_ar} AQI`;
     document.getElementById("qualidadeAr22").textContent = `${dias[48].qualidade_ar} AQI`;
     document.getElementById("qualidadeAr33").textContent = `${dias[71].qualidade_ar} AQI`;
@@ -138,27 +137,27 @@ async function main() {
     // Subtrair horas e formatar as horas
     d.setHours(d.getHours() - 1);
     var hoursSubtracted1 = String(d.getHours()).padStart(2, '0');
-    var formatteddatestrSubtracted1 = `${hoursSubtracted1}:${minutes}:${seconds}`;
+    var formatteddatestrSubtracted1 = `${hoursSubtracted1}:${minutes}`;
     document.getElementById("hora1").textContent = formatteddatestrSubtracted1;
 
     d.setHours(d.getHours() - 1);
     var hoursSubtracted2 = String(d.getHours()).padStart(2, '0');
-    var formatteddatestrSubtracted2 = `${hoursSubtracted2}:${minutes}:${seconds}`;
+    var formatteddatestrSubtracted2 = `${hoursSubtracted2}:${minutes}`;
     document.getElementById("hora2").textContent = formatteddatestrSubtracted2;
 
     d.setHours(d.getHours() - 1);
     var hoursSubtracted3 = String(d.getHours()).padStart(2, '0');
-    var formatteddatestrSubtracted3 = `${hoursSubtracted3}:${minutes}:${seconds}`;
+    var formatteddatestrSubtracted3 = `${hoursSubtracted3}:${minutes}`;
     document.getElementById("hora3").textContent = formatteddatestrSubtracted3;
 
     d.setHours(d.getHours() - 1);
     var hoursSubtracted4 = String(d.getHours()).padStart(2, '0');
-    var formatteddatestrSubtracted4 = `${hoursSubtracted4}:${minutes}:${seconds}`;
+    var formatteddatestrSubtracted4 = `${hoursSubtracted4}:${minutes}`;
     document.getElementById("hora4").textContent = formatteddatestrSubtracted4;
 
     d.setHours(d.getHours() - 1);
     var hoursSubtracted5 = String(d.getHours()).padStart(2, '0');
-    var formatteddatestrSubtracted5 = `${hoursSubtracted5}:${minutes}:${seconds}`;
+    var formatteddatestrSubtracted5 = `${hoursSubtracted5}:${minutes}`;
     document.getElementById("hora5").textContent = formatteddatestrSubtracted5;
   }
 }

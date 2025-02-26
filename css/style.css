@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 
@@ -27,6 +28,7 @@
 body {
     position: relative;
     background-color: var(--LIGHT-BG-COLOR);
+    height: 100vh;
 }
 
 .container {
@@ -66,7 +68,13 @@ nav {
 }
 
 .location {
+    display: flex;
+  
+    align-items: center;
+
     white-space: wrap;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .location h2 {
@@ -331,16 +339,19 @@ nav {
   gap: 5px; /* Espaçamento entre texto e ícone */
 }
 
-.celso {
-  width: 1.5vw;
-}
-
 .hours-box:hover {
-
     background-color: #0a2348;
     color: var(--LIGHT-BG-COLOR);
 }
 
+/* Add these new rules to properly handle child elements on hover */
+.hours-box:hover .hours-temp {
+    color: var(--LIGHT-BG-COLOR);
+}
+
+.hours-box:hover p {
+    color: var(--LIGHT-BG-COLOR);
+}
 .hours-box p {
     font-size: 1.5vw;
     font-weight: 700;
@@ -491,6 +502,7 @@ nav {
     padding: 20px 15px;
     box-shadow: 5px 5px 10px #cccccc,
         -5px -5px 10px #f4f4f4;
+    transition: all 0.3s ease; /* Add smooth transition */
 }
 
 .days-box:hover {
@@ -498,15 +510,17 @@ nav {
     color: #ffffff;
 }
 
-
-.days-box img {
-    width: 50px;
-    margin-right: 14px;
+/* Add these new rules to handle child elements on hover */
+.days-box:hover .prediction-day {
+    color: #ffffff;
 }
 
-.days-box div:first-child {
-    display: flex;
-    align-items: center;
+.days-box:hover .days-temp {
+    color: #ffffff;
+}
+
+.days-box:hover .prediction-desc {
+    color: #ffffff;
 }
 
 .days div {
@@ -715,10 +729,12 @@ footer h3 {
     - Uses a column layout for stacking elements.
 */
 .footer {
-    position: relative;
+    position: fixed;
+    bottom: 0;
     width: 100%;
+    padding: 10px;
     background: #FFAE19;
-    min-height: 60px;
+    min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -764,4 +780,10 @@ footer h3 {
     margin: 15px 0 10px 0;
     font-size: 1rem;
     font-weight: 300;
+}
+
+.imagemlogo {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
 }
